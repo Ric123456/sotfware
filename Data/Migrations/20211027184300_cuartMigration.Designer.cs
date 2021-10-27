@@ -10,8 +10,8 @@ using PruebaMVCLogin.Data;
 namespace PruebaMVCLogin.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211027150959_secondMigration")]
-    partial class secondMigration
+    [Migration("20211027184300_cuartMigration")]
+    partial class cuartMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -275,6 +275,31 @@ namespace PruebaMVCLogin.Migrations
                     b.HasIndex("pedidoID");
 
                     b.ToTable("t_order_detail");
+                });
+
+            modelBuilder.Entity("PruebaMVCLogin.Models.Informacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("text")
+                        .HasColumnName("apellido");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text")
+                        .HasColumnName("nombre");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("text")
+                        .HasColumnName("Telefono");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_informacion");
                 });
 
             modelBuilder.Entity("PruebaMVCLogin.Models.Pago", b =>

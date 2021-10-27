@@ -275,6 +275,31 @@ namespace PruebaMVCLogin.Migrations
                     b.ToTable("t_order_detail");
                 });
 
+            modelBuilder.Entity("PruebaMVCLogin.Models.Informacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("text")
+                        .HasColumnName("apellido");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text")
+                        .HasColumnName("nombre");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("text")
+                        .HasColumnName("Telefono");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_informacion");
+                });
+
             modelBuilder.Entity("PruebaMVCLogin.Models.Pago", b =>
                 {
                     b.Property<int>("Id")

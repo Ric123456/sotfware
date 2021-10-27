@@ -19,6 +19,8 @@ namespace PruebaMVCLogin.Data
         public DbSet<PruebaMVCLogin.Models.Pago> DataPago { get; set; }
         public DbSet<PruebaMVCLogin.Models.Pedido> DataPedido { get; set; }
         public DbSet<PruebaMVCLogin.Models.DetallePedido> DataDetallePedido { get; set; }
+
+         public DbSet<PruebaMVCLogin.Models.Informacion> DataInformacion { get; set; }
         
     }
 }

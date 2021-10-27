@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PruebaMVCLogin.Migrations
 {
-    public partial class secondMigration : Migration
+    public partial class cuartMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,21 @@ namespace PruebaMVCLogin.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_t_contact", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_informacion",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Telefono = table.Column<string>(type: "text", nullable: true),
+                    nombre = table.Column<string>(type: "text", nullable: true),
+                    apellido = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_informacion", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -354,6 +369,9 @@ namespace PruebaMVCLogin.Migrations
 
             migrationBuilder.DropTable(
                 name: "t_contact");
+
+            migrationBuilder.DropTable(
+                name: "t_informacion");
 
             migrationBuilder.DropTable(
                 name: "t_order_detail");

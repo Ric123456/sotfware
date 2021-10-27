@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PruebaMVCLogin.Models;
+using PruebaMVCLogin.Data;
 
 namespace PruebaMVCLogin.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context)
         {
             _logger = logger;
+             _context = context;
         }
 
         public IActionResult Index()
@@ -30,6 +32,21 @@ namespace PruebaMVCLogin.Controllers
 
         public IActionResult Catalogo()
         {
+            return View();
+        }
+
+         public IActionResult Requerimiento()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Requerimiento(Informacion obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+            ViewData["Message"] = "Mensaje Recibido";
+            //return RedirectToAction(nameof(Index));
             return View();
         }
 
