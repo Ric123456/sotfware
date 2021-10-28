@@ -46,8 +46,8 @@ namespace PruebaMVCLogin.Controllers
             _context.Add(obj);
             _context.SaveChanges();
             ViewData["Message"] = "Mensaje Recibido";
-            //return RedirectToAction(nameof(Index));
-            return View();
+            
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
