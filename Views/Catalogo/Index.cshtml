@@ -1,35 +1,89 @@
 @model IEnumerable<PruebaMVCLogin.Models.Product>
 @{
-    ViewData["Title"] = "Catalogo";  
+
+  ViewData["Title"] = "";
 }
 
-<h1>@ViewData["Title"]</h1>
-  <div class="container">
-    <h1>@ViewData["Message"]</h1>
-    <div class="row">
-      <div class="col">
-        <div id="products" class="mb-3">
-          <div class="row">
-            @foreach (var item in Model) {
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="card-img-actions">
-                    <img class="img-responsive" width="280" height="180"
-                       src="/img/@item.ImagenName" alt="@item.ImagenName"  />
+<style type="text/css">
+  .btn {
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+    color: black;
+  }
+
+
+
+  .hola {
+    text-align: center;
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 80px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+
+  .container {
+    background-color: white;
+    text-align: center;
+    text-align: center;
+    font-style: oblique;
+    
+  }
+
+  h5 {
+    font-size: 30px;
+  }
+</style>
+
+<h1 class="hola">NUESTRO CATALOGO<h1>
+    <div class="container">
+      <h1>@ViewData["Message"]</h1>
+      <div class="row">
+        <div class="col">
+          <div id="products" class="mb-3">
+            <div class="row">
+              @foreach (var item in Model)
+              {
+                <div class="col-sm-4">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <div class="card-img-actions">
+                        <img class="img-responsive" width="280" height="180" src="/img/@item.ImagenName"
+                        alt="@item.ImagenName" />
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                      <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                      <a class="btn " asp-action="Add" asp-route-id="@item.Id">Agregar al Carrito</a>
+                      <a class="btn " asp-action="Details" asp-route-id="@item.Id">Ver Producto</a>
+                    </div>
                   </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                  <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Agregar al Carrito</a>
-                  <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Ver Producto</a>
-                </div>
-              </div>
+
+              }
             </div>
-            }
-         </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+<div class="container">
+      <footer style="background: white;">
+        <marquee behavior="scroll" direction="left"><img
+            src="https://tecneofito.com/wp-content/uploads/2017/11/fish-swimming.gif" width="94" height="88"
+            alt="Swimming fish" /></marquee>
+      </footer>
+</div>

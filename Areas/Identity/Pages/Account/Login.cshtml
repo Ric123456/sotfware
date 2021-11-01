@@ -1,19 +1,103 @@
 @page
 @model LoginModel
-
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "";
 }
 
+
+
+<style type="text/css">
+    .row {
+
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+              box-shadow: 7px 7px 25px black;
+    }
+
+    .col-md-4{
+        
+       
+        padding-top: 20px;
+        padding-right: 180px;
+        margin-top: 100px;
+        text-align: center;
+        position: center;
+        background-image: none;
+
+    }
+    img{
+       width: 500px; height: 500px;
+       margin-top: -90px;
+        padding-right: 150px;
+    }
+    h3{
+        font-size: 150%;
+        font-style: oblique;
+        text-align: center;
+    }
+    h2{
+        background: skyblue;
+       border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+        font-size: 80px;
+        text-shadow: 5px 2px 2px white;
+        text-align: center;
+}
+    .form-control{
+      
+          border: 1px solid skyblue;
+            box-shadow: 7px 7px 25px skyblue;
+    }
+    .checkbox{
+        padding-top: 10px;
+      text-align: center;
+    }
+
+label
+{
+    font-size: 25px;
+    font-style: oblique;
+}
+.btn{
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 30px;
+     font-style: oblique;
+          font-weight: bolder;
+}
+.btn:hover {
+         background-color: transparent;
+      color: black;
+ }
+a{
+    font-style: oblique;
+    color: black;
+}
+
+    
+</style>
+
+<br><br><br><br>
 <h1>@ViewData["Title"]</h1>
 <div class="row">
+
     <div class="col-md-4">
+        <img src="https://i.pinimg.com/736x/11/b0/d3/11b0d3640dc3bf339722cc5b2c5a808b.jpg" >
+       
+    </div>
+    <div class="col-md-8 ">
         <section>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
+                <br>
+                    <h2 > INVERSIONES JC</h2>
+                    <h3>Utilice una cuenta local para iniciar sesión</h3>
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
+                <div class="form-group" style="font-style: oblique" >
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -31,58 +115,72 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
+
+
+                <center>
+                    <div class="form-group">
+                        <button type="submit" class="btn ">LOG IN</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">¿Olvido su contraseña?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrar un nuevo
+                                usuario</a>
+                        </p>
+                        <p>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar email de
+                                confirmación</a>
+                        </p>
+                    </div>
             </form>
         </section>
     </div>
+    </center>
 
+   
     <!--
     <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to log in.</h4>
             <hr />
             @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
+
+        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+
+        {
+                            <div>
+                                <p>
+                                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                    for details on setting up this ASP.NET application to support logging in via external services.
+                                </p>
+                            </div>
+
+        }
+        else
+
+        {
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                <div>
+                                    <p>
+                        @foreach (var provider in Model.ExternalLogins)
+
+                        {
+                                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+
+                        }
+                                    </p>
+                                </div>
+                            </form>
+
+        }
+    }
         </section>
     </div>
     -->
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

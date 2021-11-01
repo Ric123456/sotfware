@@ -1,18 +1,62 @@
 @model PruebaMVCLogin.Models.Contact
 @{
-    ViewData["Title"] = "Contacto";
+    ViewData["Title"] = "";
 }
+<style type="text/css">
+    .text-center {
 
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+    }
+
+   h1{
+       font-weight: bolder;
+       font-size: 50px;
+       background: skyblue;
+       font-style: oblique;
+   }
+   
+    .form-control{
+        
+          border: 1px solid skyblue;
+      box-shadow: 7px 7px 25px skyblue;
+    }
+   
+
+label
+{
+    font-size: 25px;
+    font-style: oblique;
+}
+.btn{
+   color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 25px;
+    font-style: oblique;
+    font-weight: bolder;
+}
+.btn:hover {
+        background-color: transparent;
+      color: black;
+ }
+
+</style>
 <h1>@ViewData["Title"]</h1>
 
 <div class="text-center">
-    <h1 class="display-4">Contáctenos</h1>
+    <h1 >Contáctenos</h1>
 
     <form asp-controller="Contact" asp-action="Edit">
         <input type="hidden" asp-for="Id" />
 
         <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control form-control-sm" type="text" placeholder="Escribe un nombre" aria-label=".form-control-sm" />
+        <input asp-for="Name" class="form-control form-control-sm" type="text"  aria-label=".form-control-sm" />
 
         <label asp-for="Email" class="control-label"></label>
         <input asp-for="Email" class="form-control" />
@@ -22,13 +66,15 @@
 
         <label asp-for="Comment" class="control-label"></label>
         <input asp-for="Comment" class="form-control" />
-
+<br>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Actualizar</button> 
+            <button type="submit" class="btn ">Actualizar</button> 
         </div>              
     </form>
     <h1>@ViewData["Message"]</h1>
     <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+        <a class="btn" asp-action="Index">Back to List</a>
+    </div>&nbsp;
+
 </div>
+&nbsp;

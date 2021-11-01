@@ -1,16 +1,61 @@
 @model PruebaMVCLogin.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "";
 }
 
-<h1>Details</h1>
+<style type="text/css">
+  .btn {
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+    color: black;
+  }
+
+
+  .hola {
+    text-align: center;
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 80px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+
+  .container {
+    background-color: white;
+    text-align: center;
+    font-style: oblique;
+  
+  }
+
+  .card-body {
+    font-size: 30px;
+    text-align: center;
+  }
+  h5{
+       font-size: 30px;
+  }
+</style>
+<h1 class="hola">DETALLES DEL PRODUCTO<h1>
+
     <div class="container">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="card-img-actions">
-                    <img class="img-responsive" width="96" height="150"
+                    <img class="img-responsive" width="280" height="180" 
                        src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
                   </div>
                 </div>
@@ -18,8 +63,17 @@
                   <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
                   <p class="card-text">@Html.DisplayFor(model => model.Descripcion)</p>
                   <h5 class="card-title">@Html.DisplayFor(model => model.Price)</h5>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="Id">Add</a>
+                  <a class="btn " asp-action="Add" asp-route-id="Id">Add</a>
+                  <a class="btn   " asp-action="Index">Back to List</a>
                 </div>
               </div>
             </div>
     </div>
+
+    <div class="container">
+      <footer style="background: white;">
+        <marquee behavior="scroll" direction="left"><img
+            src="https://tecneofito.com/wp-content/uploads/2017/11/fish-swimming.gif" width="94" height="88"
+            alt="Swimming fish" /></marquee>
+      </footer>
+</div>
