@@ -2,15 +2,76 @@
 @using System.Collections.Generic;
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "";
     IEnumerable<PruebaMVCLogin.Models.Proforma> listProformas = new List<Proforma>();
     listProformas = @Model.proformas;
     Decimal montoTotal = @Model.montoTotal;
 }
 
+<style type="text/css">
+ table {
+
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+    }
+.btn{
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+}
+.btn:hover {
+      background-color: transparent;
+      color: black;
+ }
+a{
+    font-style: oblique;
+    color: black;
+}
+th{
+    background: skyblue;
+    font-size: 25px;
+     font-style: oblique;
+    font-weight: bolder;
+
+    border: 1px solid #ccc;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+}
+td{
+    text-align: center;
+    font-size: 15px;
+    font-style: oblique;
+
+}
+p{
+       font-style: oblique;
+    color: black;
+    font-weight: bolder;
+    font-size: 50px;
+}
+ .hola {
+    text-align: center;
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 80px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+</style>
+<h1 class="hola">TU CARRITO DE COMPRAS<h1>
 <h1>@ViewData["Title"]</h1>
 
-<a class="btn btn-primary" asp-controller="Pago" 
+<a class="btn" asp-controller="Pago" 
         asp-action="Create" asp-route-id="@montoTotal">Pagar</a><p>Total S/. @montoTotal</p>
 
 <table class="table">
@@ -41,8 +102,8 @@
                 @Html.DisplayFor(modelItem => (item.Price))
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a class="btn"asp-action="Delete" asp-route-id="@item.Id">Del</a>
             </td>
         </tr>
 }

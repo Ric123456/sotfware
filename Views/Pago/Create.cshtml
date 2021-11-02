@@ -1,14 +1,63 @@
 @model PruebaMVCLogin.Models.Pago
 @{
-    ViewData["Title"] = "Pago";
+    ViewData["Title"] = "";
+}
+<style type="text/css">
+ .container {
+
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+        text-align: center;
+    }
+  
+.btn{
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+}
+.btn:hover {
+      background-color: transparent;
+      color: black;
+ }
+a{
+    font-style: oblique;
+    color: black;
 }
 
+ h3{
+
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 65px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+  .form-group{
+      text-align: center;
+  }
+.col-sm-2{
+    text-align: center;
+    font-style: oblique;
+   
+}
+</style>
+ <h3>REALIZA TU PAGO AQUI</h3>
 <h1>@ViewData["Title"]</h1>
 
     <div class="container">
 
         <div class="row">
-          <div class="col-sm-10 mt-5">
+          <div class="col-sm-12 mt-5">
            <form asp-controller="Pago" asp-action="Pagar">
               <div class="form-group row">
                 <input type="hidden" asp-for="UserID"/>
@@ -54,7 +103,7 @@
               <div class="form-group row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Pagar</button> 
+                  <button type="submit" class="btn">Pagar</button> 
                 </div>
               </div>
             </form>

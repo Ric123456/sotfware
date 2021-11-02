@@ -1,15 +1,68 @@
 @model PruebaMVCLogin.Models.Proforma
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "";
 }
 
-<h1>Edit</h1>
+<style type="text/css">
+ .container {
 
-<h4>Proforma</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+        text-align: center;
+    }
+    .row {
+
+       
+        background: white;
+        
+        text-align: center;
+    }
+.btn{
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+}
+.btn:hover {
+      background-color: transparent;
+      color: black;
+ }
+a{
+    font-style: oblique;
+    color: black;
+}
+
+ h3{
+
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 65px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+  .form-group{
+      text-align: center;
+  }
+.control-label{
+    text-align: center;
+}
+</style>
+
+ <h3>Proforma</h3>
+<div class="container">
+
+    <br><br>
+    <div class="col-md-12">
         <form asp-controller="Proforma" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -21,14 +74,15 @@
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn " />
             </div>
         </form>
     </div>
-</div>
+
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn" asp-action="Index">Back to List</a>
+</div>&nbsp;
 </div>
 
 @section Scripts {
