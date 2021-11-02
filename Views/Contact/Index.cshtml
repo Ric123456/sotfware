@@ -52,7 +52,7 @@ td{
 <h1>@ViewData["Title"]</h1>
 <br>
 <p>
-   <a class="btn " asp-action="Create">Create New</a>
+   <a class="btn " asp-action="Create">Crear nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -76,8 +76,8 @@ td{
 @foreach (var item in Model) {
         <tr>
             <td>
-                <a class="btn " asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a class="btn " asp-action="Delete" asp-route-id="@item.Id">Del</a>
+                <a class="btn " asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn " asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
