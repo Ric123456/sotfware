@@ -35,6 +35,7 @@ namespace PruebaMVCLogin.Controllers
 
             var elements = await items.ToListAsync();
             var total = elements.Sum(c => c.Quantity * c.Price );
+         
             
             dynamic model = new ExpandoObject();
             model.montoTotal = total;

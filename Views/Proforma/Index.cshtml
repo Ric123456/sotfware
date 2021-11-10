@@ -1,11 +1,13 @@
 @model dynamic;
 @using System.Collections.Generic;
 
+
 @{
     ViewData["Title"] = "";
     IEnumerable<PruebaMVCLogin.Models.Proforma> listProformas = new List<Proforma>();
     listProformas = @Model.proformas;
     Decimal montoTotal = @Model.montoTotal;
+   
 }
 
 <style type="text/css">
@@ -86,7 +88,8 @@ p{
             <th>
                 @Html.DisplayNameFor(model => listProformas.FirstOrDefault().Price)
             </th>
-            <th></th>
+           <th></th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
@@ -101,6 +104,7 @@ p{
             <td>
                 @Html.DisplayFor(modelItem => (item.Price))
             </td>
+               
             <td>
                 <a class="btn" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
                 <a class="btn"asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>

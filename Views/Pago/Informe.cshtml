@@ -1,0 +1,43 @@
+@model dynamic;
+@using System.Collections.Generic;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@{
+   IEnumerable<PruebaMVCLogin.Models.Proforma> listProformas = new List<Proforma>();
+    listProformas = @Model.proformas;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Producto
+            </th>
+            <th>
+               Cantidad
+            </th>
+            <th>
+              Precio
+            </th>
+           <th></th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Proforma item in Model.proformas) {
+        
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => (item.Price))
+                </td>
+            </tr>
+            }
+        
+    </tbody>
+</table>

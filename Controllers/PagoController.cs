@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PruebaMVCLogin.Data;
 using PruebaMVCLogin.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Dynamic;
 
 namespace PruebaMVCLogin.Controllers
 {
@@ -73,9 +74,19 @@ namespace PruebaMVCLogin.Controllers
 
             _context.SaveChanges();
 
-            ViewData["Message"] = "El pago se ha registrado";
+            ViewData["Message"] = "Mostrar Resumen de Compras";
             return View("Create");
         } 
+        public async Task<IActionResult> Informe (){
+          var userID = _userManager.GetUserName(User);
+           var items = from o in _context.DataProforma select o;
+            items = items.
+                Include(p => p.Producto).Where(s => s.UserID.Equals(userID) && s.Status.Equals("PROCESADO"));
+            var elements = await items.ToListAsync();
+            dynamic model = new ExpandoObject();
+            model.proformas = elements;
 
+            return View(model);
+        }
     }
 }
