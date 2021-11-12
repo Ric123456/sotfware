@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-body">
                       <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                      <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                      <p class="card-text">@Html.DisplayFor(modelItem => item.Price)  Por caja</p>
                       <a class="btn " asp-action="Add" asp-route-id="@item.Id">Agregar al Carrito</a>
                       <a class="btn " asp-action="Details" asp-route-id="@item.Id">Ver Producto</a>
                     </div>

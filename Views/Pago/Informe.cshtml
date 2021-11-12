@@ -6,7 +6,52 @@
    IEnumerable<PruebaMVCLogin.Models.Proforma> listProformas = new List<Proforma>();
     listProformas = @Model.proformas;
 }
+<style type="text/css">
+ .table {
 
+        border-radius: 5px 10px 10px 20px;
+        border-color: black;
+        background: white;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        box-shadow: 7px 7px 15px black;
+        text-align: center;
+    }
+    .row {
+
+       
+        background: white;
+        
+        text-align: center;
+    }
+.btn{
+    color: black;
+    background: skyblue;
+    border: 2px solid skyblue;
+    border-radius: 6px;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
+}
+.btn:hover {
+      background-color: transparent;
+      color: black;
+ }
+
+
+ h3{
+
+    background: skyblue;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px black;
+    font-size: 65px;
+    text-shadow: 5px 2px 2px white;
+    text-align: center;
+    font-style: oblique;
+  }
+
+</style>
+ <h3>TUS COMPRAS CON NOSOTROS   </h3>
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +76,7 @@
                     @Html.DisplayFor(modelItem => item.Producto.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
+                    @Html.DisplayFor(modelItem => item.Quantity) Cajas
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => (item.Price))
